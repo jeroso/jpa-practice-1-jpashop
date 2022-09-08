@@ -14,4 +14,13 @@ public class BookForm {
 
     private String author;
     private String isbn;
+
+    public static BookForm updateBook(Long id, String name, int price, int stockQuantity) {
+        BookForm bookForm = new BookForm();
+        bookForm.setId(id);
+        bookForm.setName(name);
+        bookForm.setPrice(price);
+        bookForm.setStockQuantity(stockQuantity);
+        return bookForm;
+    }
 }
