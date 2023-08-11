@@ -99,6 +99,15 @@ public class OrderRepository {
                 " join fetch o.delivery d", Order.class).getResultList();
     }
 
+    public List<Order> findAllWithItem() {
+        return em.createQuery("select distinct o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i", Order.class)
+                .getResultList();
+    }
+
     /**
      * 동적쿼리 처리 가장 좋은 방법 : queryDSL
 
