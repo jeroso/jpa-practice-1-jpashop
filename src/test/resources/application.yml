@@ -12,6 +12,8 @@ spring:
       hibernate:
 #            show_sql: true
         format_sql: true
+        # in query, fetch 100 records at a time
+        default_batch_fetch_size: 100
 
 logging:
   level:

@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import javax.swing.border.Border;
@@ -27,6 +28,7 @@ public class Order {
     @JoinColumn(name="member_id")   //@JoinColumn => 연관관계 주인
     private Member member;
 
+//    @BatchSize(size = 1000) //컬렉션에 대해 지정할 수 있음(global 설정은 application.yml)
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
